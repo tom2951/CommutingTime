@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- CDNを利用 -->
+  <!-- jQuery▼ -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript" src="../js/index.js"></script>
+  <!-- jQuery▲ -->
+  <!-- CSS▼ -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/index.css">
+  <!-- CSS▲ -->
+
+  <title>生涯通勤時間チェッカー</title>
+</head>
+
+<body>
+  <header>
+    <div>
+      <h3>通勤時間チェッカー</h3>
+      <label>あなたの通勤時間を算出します</label>
+    </div>
+  </header>
+
+  <main>
+      <form action="result.php" method="POST">
+      <div>
+        <h5>生年月日</h5>
+        <div>
+          <div>
+            <select name="year" style="width: 80px;" onchange="setDay();">              
+            </select>
+            <select name="month" style="width: 50px;" onchange="setDay();">
+            </select>
+            <select name="day" style="width: 50px;">
+            </select>
+          </div>
+            <span>現在の年齢</span>
+            <span id="howold"></span>
+        </div>
+      </div>
+
+      <div>
+        <h5>通勤時間</h5>
+        <div>
+          <input name="tukin" type="text" value="15" readonly />
+          <label>分</label>
+          <div>
+            <input type="button" onclick="BtnCalc(-5, 'tukin')" value="-5" />
+            <input type="button" onclick="BtnCalc(5, 'tukin')" value="+5" />
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h5>年間休日</h5>
+        <div>
+          <input name="holiday" type="text" value="120" readonly />
+          <label>日</label>
+          <div>
+            <input type="button" onclick="BtnCalc(-1, 'holiday')" value="-1" />
+            <input type="button" onclick="BtnCalc(1, 'holiday')" value="+1" />
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h5>定年予定</h5>
+        <div>
+          <input name="entire" type="text" value="60" readonly />
+          <label>歳</label>
+          <div>
+            <input type="button" onclick="BtnCalc(-1, 'entire')" value="-1" />
+            <input type="button" onclick="BtnCalc(1, 'entire')" value="+1" />
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="submit">
+          計算する
+        </button>
+      </div>
+      </form>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
