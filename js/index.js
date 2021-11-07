@@ -21,28 +21,7 @@ $(document).ready(function(){
     for (var i = 1; i <= 31; i++) {         
         $('select[name="day"]').append('<option value="' + i + '">' + i + '</option>');
     }
-
-    $('#howold').text(HowOldAreYou());
   });
-
-  function HowOldAreYou(){
-    var nowYear = $('select[name="year"]').val();
-    var nowMonth = $('select[name="month"]').val();
-    var nowDay = $('select[name="day"]').val();
-    var birthday = new Date(nowYear, nowMonth, nowDay);
-    //今日
-    var today = new Date();
- 
-    //今年の誕生日
-    var thisYearBirthday =
-      new Date(today.getFullYear(), birthday.getMonth(), birthday.getDate());  
- 
-    //今年-誕生年
-    var age = today.getFullYear() - birthday.getFullYear();
- 
-    //今年の誕生日を迎えていなければage-1を返す
-    return (today < thisYearBirthday)?age-1:age;
-  };
 
 // プラマイボタン
 function BtnCalc(val, target){
@@ -62,7 +41,7 @@ function BtnCalc(val, target){
             }
             break;
 
-        case "entire":
+        case "retire":
             if (test < 30) {
                 test = tukinHour;
             }
@@ -100,5 +79,4 @@ function setDay(){
       }
   }
   $('select[name="day"]').html(option);
-  $('#howold').text(HowOldAreYou());
 }
